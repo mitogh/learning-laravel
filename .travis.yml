@@ -3,6 +3,10 @@ language: php
 php:
   - 7.1.23
 
+cache:
+  directories:
+    - vendor
+
 before_script:
   - cp .env.example .env
   - composer self-update
