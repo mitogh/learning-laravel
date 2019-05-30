@@ -45,12 +45,16 @@ return [
     ],
 
     'google' => [
+        'client_id' => env( 'GOOGLE_CLIENT_ID' ),
+        'client_secret' => env( 'GOOGLE_CLIENT_SECRET' ),
+        'redirect' => env( 'GOOGLE_LOGIN_REDIRECT' ),
+        'suite_domain' => env( 'GOOGLE_SUITE_DOMAIN' ),
         'application' => [
-            'key' => env( 'GOOGLE_KEY', '' ),
-            'secret' => env( 'GOOGLE_SECRET', '' ),
-            'credentials' => env( 'GOOGLE_APPLICATION_CREDENTIALS', '' ),
-            'redirect' => env( 'GOOGLE_REDIRECT_URI', '' ),
-            'impersonation' => env( 'GOOGLE_USER_IMPERSONATION', '' ),
+            'key' => env( 'GOOGLE_KEY' ),
+            'secret' => env( 'GOOGLE_SECRET' ),
+            'credentials' => env( 'GOOGLE_APPLICATION_CREDENTIALS' ),
+            'redirect' => env( 'GOOGLE_REDIRECT_URI' ),
+            'impersonation' => env( 'GOOGLE_USER_IMPERSONATION' ),
         ],
     ],
     'tribe' => [

@@ -8,10 +8,12 @@ cache:
     - vendor
 
 before_script:
+  - touch ./database/testing.sqlite
   - cp .env.example .env
   - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
+  - php artisan migrate --seed --env=testing
 
 script:
   - composer test
