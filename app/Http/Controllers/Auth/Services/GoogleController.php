@@ -6,6 +6,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use App\Http\Controllers\Controller;
+use Laravel\Socialite\Two\User;
 use Symfony\Component\HttpFoundation\RedirectResponse as Redirect;
 
 class GoogleController extends Controller implements ContractLogin
@@ -41,7 +42,10 @@ class GoogleController extends Controller implements ContractLogin
     {
         try {
             $user = $this->socialite->driver( $this->driver )->user();
-            return $this->user->login( $user );
+            if ( $user instanceof User ) {
+                return $this->user->login( $user );
+            }
+            return abort( Response::HTTP_FORBIDDEN, 'Only Two factor users allowed.' );
         } catch ( \Exception $exception ) {
             Log::error( $exception->getMessage() );
             return abort( Response::HTTP_BAD_GATEWAY, $exception->getMessage() );
