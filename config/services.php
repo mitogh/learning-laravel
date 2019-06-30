@@ -57,6 +57,16 @@ return [
             'impersonation' => env( 'GOOGLE_USER_IMPERSONATION' ),
         ],
     ],
+
+    'bamboo' => [
+        'api' => [
+            'disabled' => env( 'BAMBOO_API_DISABLED', false ),
+            'key' => env( 'BAMBOO_API_KEY' ),
+            'domain' => env( 'BAMBOO_API_DOMAIN' ),
+            'path' => env( 'BAMBOO_API_PATH' ),
+        ]
+    ],
+
     'tribe' => [
         'sheets' => [
             'allocation' => env( 'TRIBE_ALLOCATION_SHEET_ID', '' ),
