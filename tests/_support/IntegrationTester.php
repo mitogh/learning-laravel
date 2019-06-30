@@ -61,4 +61,8 @@ class IntegrationTester extends \Codeception\Actor
 
         return $abstractUser;
     }
+
+    public function mock( string $abstract ) {
+        return app()->instance( $abstract, Mockery::mock( ...array_filter( func_get_args() )) );
+    }
 }
